@@ -1,14 +1,2 @@
-# Informatica Metadata to JSON Configuration Framework
-# Dependencies
-
-# Core dependencies (standard library - no installation needed)
-# - json
-# - logging
-# - os
-# - dataclasses
-# - pathlib
-# - typing
-# - datetime
-
-# Optional: For extended functionality
-colorama==0.4.6  # For colored terminal output
+faker==20.1.0
+lxml==4.9.3
