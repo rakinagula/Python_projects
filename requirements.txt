@@ -1,2 +1,16 @@
 faker==20.1.0
 lxml==4.9.3
+
+# Database drivers (install only what you need):
+# For SQLite (included with Python - no installation needed)
+# For Oracle
+# cx_Oracle>=8.0.0
+
+# For MySQL
+# mysql-connector-python>=8.0.33
+
+# For PostgreSQL
+# psycopg2-binary>=2.9.0
+
+# For SQL Server
+# pyodbc>=4.0.35

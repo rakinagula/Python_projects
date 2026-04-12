@@ -1,0 +1,131 @@
+{
+  "summary": {
+    "timestamp": "2026-04-12T19:04:25.846875",
+    "config_file": "comprehensive_test_config.json",
+    "total_checks": 9,
+    "passed_checks": 5,
+    "failed_checks": 4,
+    "pass_percentage": 55.55555555555556
+  },
+  "detailed_results": [
+    {
+      "field_name": "user_id",
+      "rule_type": "null_check",
+      "passed": true,
+      "message": "Null check passed. Null count: 0, Null %: 0.00%",
+      "failed_count": 0,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.844199"
+    },
+    {
+      "field_name": "user_id",
+      "rule_type": "uniqueness_check",
+      "passed": true,
+      "message": "Uniqueness check: 5 unique values out of 5 total",
+      "failed_count": 0,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.844284"
+    },
+    {
+      "field_name": "email",
+      "rule_type": "pattern_check",
+      "passed": false,
+      "message": "Pattern check: 3/4 values match pattern",
+      "failed_count": 1,
+      "total_count": 4,
+      "timestamp": "2026-04-12T19:04:25.844579"
+    },
+    {
+      "field_name": "age",
+      "rule_type": "range_check",
+      "passed": false,
+      "message": "Range check: 4/5 values in range [18, 100]",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.844659"
+    },
+    {
+      "field_name": "status",
+      "rule_type": "allowed_values",
+      "passed": true,
+      "message": "Allowed values check: 5/5 values are allowed",
+      "failed_count": 0,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.844735"
+    },
+    {
+      "field_name": "product_id",
+      "rule_type": "null_check",
+      "passed": true,
+      "message": "Null check passed. Null count: 0, Null %: 0.00%",
+      "failed_count": 0,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.845680"
+    },
+    {
+      "field_name": "price",
+      "rule_type": "range_check",
+      "passed": false,
+      "message": "Range check: 4/5 values in range [0.01, 999999]",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.845938"
+    },
+    {
+      "field_name": "quantity",
+      "rule_type": "null_check",
+      "passed": false,
+      "message": "Null percentage 20.00% exceeds threshold 10%",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.846126"
+    },
+    {
+      "field_name": "category",
+      "rule_type": "allowed_values",
+      "passed": true,
+      "message": "Allowed values check: 5/5 values are allowed",
+      "failed_count": 0,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.846292"
+    }
+  ],
+  "failed_validations": [
+    {
+      "field_name": "email",
+      "rule_type": "pattern_check",
+      "passed": false,
+      "message": "Pattern check: 3/4 values match pattern",
+      "failed_count": 1,
+      "total_count": 4,
+      "timestamp": "2026-04-12T19:04:25.844579"
+    },
+    {
+      "field_name": "age",
+      "rule_type": "range_check",
+      "passed": false,
+      "message": "Range check: 4/5 values in range [18, 100]",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.844659"
+    },
+    {
+      "field_name": "price",
+      "rule_type": "range_check",
+      "passed": false,
+      "message": "Range check: 4/5 values in range [0.01, 999999]",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.845938"
+    },
+    {
+      "field_name": "quantity",
+      "rule_type": "null_check",
+      "passed": false,
+      "message": "Null percentage 20.00% exceeds threshold 10%",
+      "failed_count": 1,
+      "total_count": 5,
+      "timestamp": "2026-04-12T19:04:25.846126"
+    }
+  ]
+}

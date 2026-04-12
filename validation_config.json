@@ -1,0 +1,229 @@
+{
+  "validation_config": {
+    "version": "1.0",
+    "description": "Data quality validation rules for database tables",
+    "created_at": "2026-04-12",
+    "organization": "Data Quality Team"
+  },
+  "database_connection": {
+    "db_type": "sqlite",
+    "database": "test_data.db",
+    "comment": "For SQLite: only database parameter needed. For other databases, add: host, port, username, password, sid"
+  },
+  "validation_tables": [
+    {
+      "table_name": "customers",
+      "description": "Customer master data table",
+      "enabled": true,
+      "validation_rules": [
+        {
+          "field_name": "customer_id",
+          "rule_type": "null_check",
+          "description": "Customer ID should not have nulls",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "customer_id",
+          "rule_type": "uniqueness_check",
+          "description": "Customer IDs must be unique",
+          "enabled": true,
+          "rule_config": {
+            "allow_null_duplicates": false
+          }
+        },
+        {
+          "field_name": "customer_name",
+          "rule_type": "null_check",
+          "description": "Customer name should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "email",
+          "rule_type": "pattern_check",
+          "description": "Email should match valid email pattern",
+          "enabled": true,
+          "rule_config": {
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          }
+        },
+        {
+          "field_name": "customer_age",
+          "rule_type": "range_check",
+          "description": "Customer age should be between 18 and 120",
+          "enabled": true,
+          "rule_config": {
+            "min_value": 18,
+            "max_value": 120
+          }
+        },
+        {
+          "field_name": "status",
+          "rule_type": "allowed_values",
+          "description": "Status should be one of: Active, Inactive, Suspended",
+          "enabled": true,
+          "rule_config": {
+            "values": ["Active", "Inactive", "Suspended"]
+          }
+        },
+        {
+          "field_name": "registration_date",
+          "rule_type": "null_check",
+          "description": "Registration date should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "orders",
+      "description": "Customer orders table",
+      "enabled": true,
+      "validation_rules": [
+        {
+          "field_name": "order_id",
+          "rule_type": "null_check",
+          "description": "Order ID should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "order_id",
+          "rule_type": "uniqueness_check",
+          "description": "Order IDs must be unique",
+          "enabled": true,
+          "rule_config": {
+            "allow_null_duplicates": false
+          }
+        },
+        {
+          "field_name": "customer_id",
+          "rule_type": "null_check",
+          "description": "Customer ID in orders should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "order_amount",
+          "rule_type": "range_check",
+          "description": "Order amount should be positive",
+          "enabled": true,
+          "rule_config": {
+            "min_value": 0,
+            "max_value": 999999.99
+          }
+        },
+        {
+          "field_name": "order_amount",
+          "rule_type": "null_check",
+          "description": "Order amount should not have too many nulls",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": true,
+            "max_null_percentage": 5
+          }
+        },
+        {
+          "field_name": "order_status",
+          "rule_type": "allowed_values",
+          "description": "Order status should be valid",
+          "enabled": true,
+          "rule_config": {
+            "values": ["Pending", "Processing", "Shipped", "Delivered", "Cancelled", "Returned"]
+          }
+        },
+        {
+          "field_name": "order_date",
+          "rule_type": "null_check",
+          "description": "Order date should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "products",
+      "description": "Product master data",
+      "enabled": true,
+      "validation_rules": [
+        {
+          "field_name": "product_id",
+          "rule_type": "null_check",
+          "description": "Product ID should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "product_id",
+          "rule_type": "uniqueness_check",
+          "description": "Product IDs must be unique",
+          "enabled": true,
+          "rule_config": {
+            "allow_null_duplicates": false
+          }
+        },
+        {
+          "field_name": "product_name",
+          "rule_type": "null_check",
+          "description": "Product name should not be null",
+          "enabled": true,
+          "rule_config": {
+            "allow_null": false,
+            "max_null_percentage": 0
+          }
+        },
+        {
+          "field_name": "price",
+          "rule_type": "range_check",
+          "description": "Price should be positive",
+          "enabled": true,
+          "rule_config": {
+            "min_value": 0.01,
+            "max_value": 999999.99
+          }
+        },
+        {
+          "field_name": "category",
+          "rule_type": "allowed_values",
+          "description": "Category must be from predefined list",
+          "enabled": true,
+          "rule_config": {
+            "values": ["Electronics", "Clothing", "Home", "Books", "Sports", "Food"]
+          }
+        },
+        {
+          "field_name": "stock_quantity",
+          "rule_type": "range_check",
+          "description": "Stock quantity should be non-negative",
+          "enabled": true,
+          "rule_config": {
+            "min_value": 0,
+            "max_value": 999999
+          }
+        }
+      ]
+    }
+  ]
+}

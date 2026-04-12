@@ -1,0 +1,96 @@
+{
+  "validation_config": {
+    "version": "1.0",
+    "description": "Comprehensive validation test"
+  },
+  "database_connection": {
+    "db_type": "sqlite",
+    "database": "comprehensive_test.db"
+  },
+  "validation_tables": [
+    {
+      "table_name": "users",
+      "enabled": true,
+      "validation_rules": [
+        {
+          "field_name": "user_id",
+          "rule_type": "null_check",
+          "rule_config": {
+            "allow_null": false
+          }
+        },
+        {
+          "field_name": "user_id",
+          "rule_type": "uniqueness_check",
+          "rule_config": {}
+        },
+        {
+          "field_name": "email",
+          "rule_type": "pattern_check",
+          "rule_config": {
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          }
+        },
+        {
+          "field_name": "age",
+          "rule_type": "range_check",
+          "rule_config": {
+            "min_value": 18,
+            "max_value": 100
+          }
+        },
+        {
+          "field_name": "status",
+          "rule_type": "allowed_values",
+          "rule_config": {
+            "values": [
+              "active",
+              "inactive",
+              "suspended"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "products",
+      "enabled": true,
+      "validation_rules": [
+        {
+          "field_name": "product_id",
+          "rule_type": "null_check",
+          "rule_config": {
+            "allow_null": false
+          }
+        },
+        {
+          "field_name": "price",
+          "rule_type": "range_check",
+          "rule_config": {
+            "min_value": 0.01,
+            "max_value": 999999
+          }
+        },
+        {
+          "field_name": "quantity",
+          "rule_type": "null_check",
+          "rule_config": {
+            "allow_null": true,
+            "max_null_percentage": 10
+          }
+        },
+        {
+          "field_name": "category",
+          "rule_type": "allowed_values",
+          "rule_config": {
+            "values": [
+              "Electronics",
+              "Furniture",
+              "Books"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
